@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Sofia&display=swap');
+
+
+body{
+
+
+  background-image: url("../img/i1.jpg");
+  background-attachment: fixed;
+  background-size: 1200px;
+  background-position: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  overflow-x: hidden;
+
+}
+
+nav{
+
+      border-bottom: solid 2px gray;
+      height: 130px !important;
+
+
+}
+
+.btnn{
+
+    font-size: 40px !important;
+    padding: 30px !important;
+
+
+}
+
+nav .brand-logo{
+
+    font-size: 4rem !important;
+    padding: 30px !important;
+    text-shadow: 6px 5px 4px black;
+    color: white;
+}
+
+.sidenav .user-vue .circle{
+
+    height: 150px !important;
+    width: 150px !important;
+    margin: 0 auto;
+    animation-delay: .5s;
+}
+.background > img{
+    width: 100%;
+    height: 100%;
+}
+
+.sidenav .user-vue .name{
+
+    font-family: 'Sofia';
+    font-size: 1.6rem;
+    animation-delay: .7s;
+}
+
+.sidenav .user-vue .email{
+
+    font-family: 'Sofia';
+    font-size: 1.2rem;
+    animation-delay: .9s;
+}
+
+.sidenav li > a{
+     
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+
+}
+#slide-out li a i{
+
+    font-size: 2rem;
+}
+
+#linkone{
+
+    animation-delay: 1s;
+}
+
+#linktwo{
+
+    animation-delay: 1.2s;
+}
+
+#linkthree{
+
+    animation-delay: 1.4s;
+}
+#linkfour{
+
+    animation-delay: 1.4s;
+}
+
+/*******************
+components
+********************/
+
+section.content{
+        
+    width: 70%;
+    display: 0 auto;
+    margin-top: 110px;
+    margin-bottom: 150px;
+    text-align: center;
+}
+
+
+/*.why-us{
+
+
+    -webkit-text-fil-color: transparent;
+    -webkit-text-stoke-color:red;
+    -webkit-text-stoke-width: 1px;
+}*/
+
+.why-us ,.services{
+
+
+    background:grey;
+    color:darkgreen;
+    padding: 80px;
+    border-radius: 20px;
+    /*border: solid 2px black;*/
+}
+
+
+.hrhr{
+
+    border: solid 1px black;
+    text-align: center;
+}
+.contact{
+
+    text-align: center;
+    font-size: 3rem;
+    padding: 20px;
+    color: white;
+   
+}
+.contact i{
+    
+    font-size: 3rem;
+}
+
+::-webkit-scrollbar-track{
+
+    background: black;
+}
+.component{
+    display: none;
+}
+
+.booking{
+
+    text-align: center;
+}
+
+.customerinfo{
+    text-align: center;
+    font-size: 2rem !important;
+    color:red;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.notifications {
+
+    color:white;
+    font-size: 1.6rem;
+    background: red;
+    padding: 12px;
+    border-radius: 20px;
+    position: absolute;
+    top: 175px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: none;
+}

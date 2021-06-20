@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+
+        <head>
+            <meta charset="utf-8">
+            <title>clinicAA</title>
+            <link rel='stylesheet' href="css/style.css">
+            <link rel='stylesheet' href="css/anime.css">
+            <link rel = 'stylesheet' href = 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css'>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Two+Tone" rel="stylesheet">
+           <!--Import materialize.css-->
+            <!-- Compiled and minified CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+            <!-- Compiled and minified JavaScript -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <meta charset="utf-8">
+            <meta name="description" content="this is a clinic website">
+            <meta name="keyword" content="apointment">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src = "js/vue.js"></script>
+            <script src = "js/whyUs.js"></script>
+            <script src = "js/services.js"></script>
+            <script src = "js/contact.js"></script>
+            <script src = "js/booking.js"></script>
+
+            <script src = "https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.6.1/vue-resource.min.js"></script>
+         </head>
+
+
+        
+         <body>
+         <div id = "main">
+            <nav>
+                  <div class="nav-wrapper">
+                  <a href="#!" class="brand-logo center">clinicAA</a>
+                  <a href="#" data-target="slide-out" @click="animationsCon = true" class="sidenav-trigger left show-on-large">
+                      <i class="btnn material-icons">menu</i>
+                  </a>
+                  </div>
+            </nav>
+
+              <ul id="slide-out" class="sidenav">
+                <li><div class="user-view">
+                    <div class="background">
+                       <img src="img/i3.jpg">
+                    </div>
+                  <a @click="animationsCon" href="#user"><img class="circle animated rotateIn" src="img/j2.jpg"></a>
+                  <a @click="animationsCon" href="#name"><span class="white-text name animated fadeInRight">John Doe</span></a>
+                  <a @click="animationsCon" href="#email"><span class="white-text email animated fadeInRight">jdandturk@gmail.com</span></a>
+                  </div>
+                </li>
+
+
+                <li v-for="link in links">
+                    
+                    <a @click= "changeContent" href="javascript:;" :id="link.id" v-if="animationsCon" class = "waves-effect links animated fadeInLeft">
+                        <i class="material-icons-two-tone">{{ link.icon }}</i>
+                        {{ link.title }}
+                    </a>
+                </li>
+
+
+               <!---button for closing sidenav-->
+               <span><a @click="animationsCon = false" href="javascript:;" class = "sidenav-close"></a></span>
+              </ul>
+              
+
+            <section class="content">
+                <booking :id=links[0].id></booking>
+                <services :services="services" :id=links[1].id></services>
+                <whyus :about="about" :id=links[2].id></whyus>
+                <contact :id="links[3].id"></contact>
+
+            </section>
+
+        
+
+         </div>
+
+
+         <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+         var elems = document.querySelectorAll('.sidenav');
+         var instances = M.Sidenav.init(elems, {});
+    });
+
+
+
+
+
+            var app = new Vue({
+
+                el: '#main',
+                data: {
+                      
+                    links : [
+
+                              {title : "booking", icon : "alarm", id: "linkone"},
+                              {title : "services", icon : "money", id: "linktwo"},
+                              {title : "why Us ?", icon : "assignment", id: "linkthree"},
+                              {title : "Contact Us", icon : "contacts", id: "linkfour"},
+
+                    ],
+
+                    animationsCon : false,
+                            about : [],
+                            services :[]
+                          
+                },
+
+                methods :{
+
+                   changeContent(event){
+                       document.getElementsByClassName('sidenav-close')[0].click();
+
+                       clickedOption = event.srcElement.id;
+                       componentToHide = document.getElementsByClassName('component');
+
+                       for (let x = 0; x< componentToHide.length;x++){
+                           componentToHide[x].style.display = "none";
+                       }
+
+                      document.getElementsByClassName(clickedOption)[0].style.display = "block";
+                   }
+                },
+
+               created(){
+
+                this.$http.get('https://clinicaa-3b4b8-default-rtdb.europe-west1.firebasedatabase.app/whyus.json').then(function(data){
+                     
+                    this.about = data.body;
+                   
+                  
+                });
+
+                this.$http.get('https://clinicaa-3b4b8-default-rtdb.europe-west1.firebasedatabase.app/services.json').then(function(data){
+                     
+                    this.services = data.body;
+                    //console.log(data);
+                     
+                   
+                 });
+
+
+
+
+
+               }
+                
+
+
+
+
+
+            })
+
+         </script>
+
+        </body>
+   
+
+
+
+
+
+
+
+
+
+
+
+</html>
